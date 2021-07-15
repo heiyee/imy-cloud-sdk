@@ -16,7 +16,7 @@ var (
 )
 
 type RequestHandler interface {
-	Handle(c *gin.Context, apiId int64, request interface{}) error
+	Handle(c *gin.Context, request interface{}) error
 }
 
 type ResponseHandler interface {
@@ -48,7 +48,7 @@ type BaseResponse struct {
 	ErrorFields []ErrorField `json:"errorFields,omitempty"`
 }
 
-func (j JsonRequestHandler) Handle(c *gin.Context, apiId int64, request interface{}) (e error) {
+func (j JsonRequestHandler) Handle(c *gin.Context, request interface{}) (e error) {
 	s, _ := ioutil.ReadAll(c.Request.Body)
 	e = json.Unmarshal(s, &request)
 	if e != nil {

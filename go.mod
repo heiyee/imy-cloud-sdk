@@ -1,4 +1,4 @@
-module imy-cloud-sdk
+module github.com/heiyee/imy-cloud-sdk
 
 go 1.15
 
