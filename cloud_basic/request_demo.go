@@ -7,7 +7,11 @@ import (
 var requestMap = make(map[string]*RequestConfig)
 
 func init() {
-	requestMap[""] = getApi_1_context()
+	addHandler("", getApi_1_context)
+}
+
+func addHandler(apiId string, f func() *RequestConfig) {
+	requestMap[apiId] = f()
 }
 
 func getApi_1_context() *RequestConfig {

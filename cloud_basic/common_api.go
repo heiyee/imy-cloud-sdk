@@ -8,7 +8,6 @@ import (
 
 var (
 	OK = &Err{Code: 0, Message: "OK"}
-
 	// 系统错误, 前缀为 100
 	InternalServerError = &Err{Code: 10001, Message: "内部服务器错误"}
 	ParamError          = &Err{Code: 10002, Message: "请求参数错误"}
