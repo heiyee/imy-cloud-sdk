@@ -74,3 +74,15 @@ type OctetStreamInternalErrorHandler struct {
 func (s OctetStreamInternalErrorHandler) Handle(c *gin.Context) {
 	c.AbortWithStatus(500)
 }
+
+type Initializer interface {
+	GetHandlers() []WebHandler
+	GetAddr() string
+}
+
+type WebHandler struct {
+	ApiId   string
+	Method  int
+	Url     string
+	Handler func(apiId string, c *gin.Context)
+}
